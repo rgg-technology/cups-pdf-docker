@@ -6,10 +6,15 @@ RUN echo 'root:187' | chpasswd
 
 RUN apt update
 RUN apt -y install cups
+
+RUN apt -y install curl net-tools htop
+RUN apt -y install iproute2
+
+
 RUN apt -y install printer-driver-cups-pdf
 RUN apt -y install avahi-daemon
 
-RUN apt -y install curl net-tools htop
+
 
 COPY cups-pdf.conf /etc/cups/cups-pdf.conf
 COPY cupsd.conf /etc/cups/cupsd.conf
