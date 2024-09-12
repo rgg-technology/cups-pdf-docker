@@ -1,2 +1,2 @@
 
-sudo docker run -dit --rm --ip 192.168.2.187 --network printer --network printer_bridge --name cups cups
+sudo docker run -v ~/data:/data -dit --rm --ip 192.168.2.187 --network printer --network printer_bridge --name cups cups
