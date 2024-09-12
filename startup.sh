@@ -13,7 +13,7 @@ done
 
 # Configure the virtual PDF printer
 echo "Configuring the virtual PDF printer..."
-lpadmin -p printprint -v cups-pdf:/ -E -m lsb/usr/cups-pdf/CUPS-PDF_noopt.ppd -o printer-is-shared=true -D "The real printprint"
+lpadmin -p $APP_PRINTER1_NAME -v cups-pdf:/ -E -m lsb/usr/cups-pdf/CUPS-PDF_noopt.ppd -o printer-is-shared=true -D "$APP_PRINTER1_NAME_FULL"
 
 # Keep the container running
 echo "CUPS is up and running. Keeping container alive..."

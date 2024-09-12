@@ -6,6 +6,9 @@ services:
     container_name: cups-pdf-cups
     volumes:
       - ${HOST_DATA_VOLUME}:/data
+    environment:
+      - APP_PRINTER1_NAME=${APP_PRINTER1_NAME}
+      - APP_PRINTER1_NAME_FULL=${APP_PRINTER1_NAME_FULL}
     build:
       args:
         ROOT_PASSWD: ${ROOT_PASSWD}
