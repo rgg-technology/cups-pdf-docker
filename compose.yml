@@ -1,0 +1,27 @@
+name: cups-pdf
+
+services:
+  cups-pdf-cups:
+    image: cups
+    container_name: cups-pdf-cups
+    volumes:
+      - /home/rgg/data:/data
+    build:
+      args:
+        ROOT_PASSWD: 361
+    networks:
+      cups-ipvlan:
+        ipv4_address: 192.168.2.187
+      cups-bridge:
+
+networks:
+  cups-bridge:
+    driver: bridge
+  cups-ipvlan:
+    driver: ipvlan
+    ipam:
+      config:
+        - subnet: 192.168.2.0/24
+          gateway: 192.168.2.1
+    driver_opts:
+      parent: wlp2s0
