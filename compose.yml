@@ -5,13 +5,13 @@ services:
     image: cups
     container_name: cups-pdf-cups
     volumes:
-      - /home/rgg/data:/data
+      - ${HOST_DATA_VOLUME}:/data
     build:
       args:
-        ROOT_PASSWD: 361
+        ROOT_PASSWD: ${ROOT_PASSWD}
     networks:
       cups-ipvlan:
-        ipv4_address: 192.168.2.187
+        ipv4_address: ${APP_PRINTER_IP}
       cups-bridge:
 
 networks:
@@ -21,7 +21,7 @@ networks:
     driver: ipvlan
     ipam:
       config:
-        - subnet: 192.168.2.0/24
-          gateway: 192.168.2.1
+        - subnet: ${APP_SUBNET}
+          gateway: ${APP_GATEWAY}
     driver_opts:
-      parent: wlp2s0
+      parent: ${APP_NIC}
