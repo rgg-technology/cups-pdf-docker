@@ -10,10 +10,10 @@ RUN apt -y install cups
 RUN apt -y install printer-driver-cups-pdf
 RUN apt -y install avahi-daemon samba
 
-COPY cups-pdf.conf /etc/cups/cups-pdf.conf
-COPY cupsd.conf /etc/cups/cupsd.conf
-COPY avahi-daemon.conf /etc/avahi/avahi-daemon.conf
-COPY smb.conf /etc/samba/smb.conf
+COPY conf/cups-pdf.conf /etc/cups/cups-pdf.conf
+COPY conf/cupsd.conf /etc/cups/cupsd.conf
+COPY conf/avahi-daemon.conf /etc/avahi/avahi-daemon.conf
+COPY conf/smb.conf /etc/samba/smb.conf
 
 # Copy the startup script into the container
 COPY startup.sh /usr/local/bin/startup.sh
